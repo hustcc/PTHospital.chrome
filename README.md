@@ -15,10 +15,9 @@
 ## 贡献代码
 
 1. 首先fork代码，然后在`PTHospitalList.js`中增加医院的信息，主要是`网站`、`医院名字`、`医院位置`。
-2. 然后发出PR即可。
-3. 或者直接使用issue中发出issue，由我们来修改。
+2. 然后发出`PR`即可。
+3. 或者直接`发出issue`，由我们来修改。
 
 数据可以参考项目：
 
  - [https://github.com/langhua9527/Hospital](https://github.com/langhua9527/Hospital)
- - 
