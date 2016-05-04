@@ -9,7 +9,9 @@
 
 ## 截图
 
-![screenshot.png](screenshot.png)
+![screenshot/screenshot_1.png](screenshot/screenshot_1.png)
+
+![screenshot/screenshot_2.png](screenshot/screenshot_2.png)
 
 或者安装插件之后，从[https://raw.githubusercontent.com/langhua9527/Hospital/master/README.md](https://raw.githubusercontent.com/langhua9527/Hospital/master/README.md)中随意打开一个医院网址。
 
