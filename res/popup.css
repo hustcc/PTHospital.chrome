@@ -1,0 +1,31 @@
+﻿body {
+	width: 320px;
+}
+table {
+	border-collapse:collapse;
+	font-size: 0.85em;
+}
+table,td {
+	border: 1px solid gray;
+}
+td{
+	padding: 4px;
+	text-overflow:ellipsis;
+}
+td.item-name{
+	text-align: right;
+}
+.content-div{
+	width:220px;
+	white-space:nowrap;
+	overflow-x:hidden;
+	text-overflow:ellipsis;
+}
+
+.content-div-full {
+	width:300px;
+	white-space:nowrap;
+	overflow-x:hidden;
+	text-overflow:ellipsis;
+	text-align: right;
+}
