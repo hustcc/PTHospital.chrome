@@ -11,6 +11,8 @@
 
 ![screenshot.png](screenshot.png)
 
+或者安装插件之后，从[https://raw.githubusercontent.com/langhua9527/Hospital/master/README.md](https://raw.githubusercontent.com/langhua9527/Hospital/master/README.md)中随意打开一个医院网址。
+
 
 ## 贡献代码
 
