@@ -17,7 +17,7 @@ function getMaskContainer(name, phone) {
         alert_div.style.color = "black";
         alert_div.style.position = "fixed"
         alert_div.style.bottom = "0";
-        alert_div.style["z-index"] = "99999";
+        alert_div.style["z-index"] = "999999999";
         alert_div.style["line-height"] = "50px;";
         document.body.appendChild(alert_div);
     }
