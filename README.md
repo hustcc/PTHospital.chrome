@@ -22,6 +22,8 @@
 2. 然后发出`PR`即可。
 3. 或者直接`发出issue`，由我们来修改。
 
+代码PR并merge之后，会`自动触发webhook，然后将对应的数据推送到cdn上`，等待缓存过期之后，自动生效。
+
 数据可以参考项目：
 
  - [https://github.com/langhua9527/Hospital](https://github.com/langhua9527/Hospital)
