@@ -7,7 +7,7 @@ function getMaskContainer(name, phone) {
     if (!alert_div) {
         alert_div = document.createElement("div");
         alert_div.id = "pthospital_chrome_plugin";
-        alert_div.innerHTML = "《" + name + "》属于莆田系医疗机构，就医请谨慎！";
+        alert_div.innerHTML = "《" + name + "》" + chrome.i18n.getMessage("tipText");
         alert_div.style.display = "block";
         alert_div.style["background-color"] = "red";
         alert_div.style.width = "100%";

@@ -72,7 +72,6 @@ function load_list_data() {
 			if (content.success) {
 				// 不知道会不会有隐患
 				eval(content.content);
-				console.log(PTHospitalList);
 				PTHospitalListTemp = PTHospitalList;
 			}
 		});

@@ -1,0 +1,23 @@
+{
+   "extDesp": {
+      "message": "PuTian Hospital Alert, When visite there website, give alert and show the Hospital Message."
+   },
+   "extName": {
+      "message": "PuTian Hospital Alert"
+   },
+   "tipText": {
+      "message": "Belongs to PuTian Hospital, be carefull !"
+   },
+   "HosName": {
+      "message": "Hospital Name: "
+   },
+   "HosPhone": {
+      "message": "Hospital Call: "
+   },
+   "HosInfoTitle": {
+      "message": "Belongs to PuTian Hospital, Be carefull please."
+   },
+   "fillHosInfo": {
+      "message": "Supply PuTian Hospital: "
+   }
+}

@@ -1,8 +1,9 @@
 ﻿{
 	"manifest_version": 2,
-	"name": "莆田系医院网站提醒",
-	"description": "莆田系医院网站提醒，对于莆田系无良网站，将显示红色警告提示，并给出它的医院名字和所在城市。",
-	"version": "1.0.5",
+	"name": "__MSG_extName__",
+	"default_locale": "zh_CN",
+	"description": "__MSG_extDesp__",
+	"version": "1.0.6",
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 	"background": {
 		"scripts": ["res/background.js"] 
