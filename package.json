@@ -1,4 +1,10 @@
 {
+  "name": "PTHospital.chrome",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hustcc/PTHospital.chrome"
+  },
+  "license": "MIT",
   "scripts": {
     "test": "node PTHospitalList.js"
   },
