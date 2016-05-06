@@ -1,5 +1,7 @@
 # PTHospital.chrome
 
+[![Build Status](https://travis-ci.org/hustcc/PTHospital.chrome.svg?branch=master)](https://travis-ci.org/hustcc/PTHospital.chrome)
+
 一个莆田系医院网站提醒的浏览器插件，对于莆田系无良网站，将显示红色警告提示，并给出它的医院名字和医院电话。
 
 ## 安装地址
