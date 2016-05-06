@@ -3,7 +3,7 @@
 	"name": "__MSG_extName__",
 	"default_locale": "zh_CN",
 	"description": "__MSG_extDesp__",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
 	"background": {
 		"scripts": ["res/background.js"] 
@@ -13,14 +13,14 @@
 			"19": "res/pt_256.png",
 			"38": "res/pt_256.png"
 		},
-		"default_title": "网站是莆田系医院网址，请谨慎！",
+		"default_title": "__MSG_extName__",
 		"default_popup": "res/popup.html"
 	},
 	"content_scripts": [{
 		"all_frames": false,
-		"css": [],
 		"js": [ "res/content.js" ],
-		"matches": [ "http://*/*", "https://*/*" ]
+		"matches": [ "http://*/*", "https://*/*" ],
+		"run_at": "document_start"
 	}],
 	"icons": {
 		"128": "res/pt_256.png",
