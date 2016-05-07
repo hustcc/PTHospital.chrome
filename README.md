@@ -2,30 +2,33 @@
 
 [![Build Status](https://travis-ci.org/hustcc/PTHospital.chrome.svg?branch=master)](https://travis-ci.org/hustcc/PTHospital.chrome)
 
-一个莆田系医院网站提醒的浏览器插件，对于莆田系无良网站，将显示红色警告提示，并给出它的医院名字和医院电话。
+本项目的意图是利用[https://github.com/open-power-workgroup/Hospital](open-power-workgroup/Hospital)收集汇总与国内一些医疗机构有关的信息，制作出来的一个`莆田系医院网站提醒`的Chrome插件，供广大寻医问药的患者及家属参考。
 
-## 安装地址
+这是一个莆田系医院网站提醒的浏览器插件，在访问莆田系无良网站，将显示红色警告提示，并给出它的医院名字和医院电话，提醒您就医谨慎。
 
-1. 下载本代码安装
-2. chrome安装地址：[https://chrome.google.com/webstore/detail/%E8%8E%86%E7%94%B0%E7%B3%BB%E5%8C%BB%E9%99%A2%E7%BD%91%E7%AB%99%E6%8F%90%E9%86%92/pihadmdiehanenijehoohjnpiaofmmng](https://chrome.google.com/webstore/detail/%E8%8E%86%E7%94%B0%E7%B3%BB%E5%8C%BB%E9%99%A2%E7%BD%91%E7%AB%99%E6%8F%90%E9%86%92/pihadmdiehanenijehoohjnpiaofmmng)
+## 安装方法
 
-## 截图
+1. 下载本代码，将代码拖入到Chrome浏览器的插件界面中；
+2. Chrome安装市场安装地址：[https://chrome.google.com/webstore/detail/%E8%8E%86%E7%94%B0%E7%B3%BB%E5%8C%BB%E9%99%A2%E7%BD%91%E7%AB%99%E6%8F%90%E9%86%92/pihadmdiehanenijehoohjnpiaofmmng](https://chrome.google.com/webstore/detail/%E8%8E%86%E7%94%B0%E7%B3%BB%E5%8C%BB%E9%99%A2%E7%BD%91%E7%AB%99%E6%8F%90%E9%86%92/pihadmdiehanenijehoohjnpiaofmmng)
+
+
+## 插件截图
 
 ![screenshot/screenshot_1.png](screenshot/screenshot_1.png)
 
 ![screenshot/screenshot_2.png](screenshot/screenshot_2.png)
 
-或者安装插件之后，从[https://raw.githubusercontent.com/langhua9527/Hospital/master/README.md](https://raw.githubusercontent.com/langhua9527/Hospital/master/README.md)中随意打开一个医院网址。
-
 
 ## 贡献代码
 
-1. 首先fork代码，然后在`PTHospitalList.js`中增加医院的信息，主要是`网站`、`医院名字`、`医院位置`。
-2. 然后发出`PR`即可。
-3. 或者直接`发出issue`，由我们来修改。
+这里的代码贡献，仅仅只是关于插件功能，插件体验，插件BUG的贡献。关于`医院数据的贡献`，不在这个项目维护，请看后面的介绍。
 
-代码PR并merge之后，会`自动触发webhook，然后将对应的数据推送到cdn上`，等待缓存过期之后，自动生效。
+1. 首先fork代码；
+2. 修改Chrome插件代码，并提交；
+3. 最后发出PR即可。
 
-数据可以参考项目：
 
- - [https://github.com/langhua9527/Hospital](https://github.com/langhua9527/Hospital)
+## 提交医院数据
+
+本插件的的所有数据都来源于：[https://github.com/open-power-workgroup/Hospital](https://github.com/open-power-workgroup/Hospital)。
+对于这样的数据，我们建议统一的提交和维护更加有利，所以大家如果有相关莆田系医院信息，建议到[该项目新建Issue](https://github.com/open-power-workgroup/Hospital/issues/new)中提交莆田医院信息，请注意出示足够的信息。
