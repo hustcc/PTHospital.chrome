@@ -63,7 +63,10 @@ function showAlert(name, phone) {
     getMaskContainer(name, phone);
 }
 
-chrome.runtime.onMessage.addListener(function(msg) {
-    // 检测为pt网址，加入红色背景提示信息
-    showAlert(msg.name, msg.phone);
-});
+document.addEventListener( "DOMContentLoaded", function() {
+    chrome.runtime.sendMessage({"what": "ptinfo"}, function(response) {
+        if (response && response.length >= 2) {
+            showAlert(response[0], response[1]);    
+        }
+    })
+}, false );

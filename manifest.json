@@ -20,7 +20,7 @@
 		"all_frames": false,
 		"js": [ "res/content.js" ],
 		"matches": [ "http://*/*", "https://*/*" ],
-		"run_at": "document_end"
+		"run_at": "document_start"
 	}],
 	"icons": {
 		"128": "res/pt_256.png",

@@ -14,17 +14,19 @@ var PTHospitalListTemp = null;
 
 
 function checkForPTUrl(tabId, changeInfo, tab) {
-	var PT_url = getDomainFromUrl(tab.url).toLowerCase();
-	PTINFO = PTHospitalListTemp[PT_url];
-	if(PTINFO) {
-		// 显示图标
-		chrome.pageAction.show(tabId);
-		// 发送消息
-		chrome.tabs.sendMessage(tabId, {
-			name: PTINFO[0],
-			phone: PTINFO[1]
-		});
-		
+	if (tab.status == 'loading') {
+		var PT_url = getDomainFromUrl(tab.url).toLowerCase();
+		PTINFO = PTHospitalListTemp[PT_url];
+		if(PTINFO) {
+			// 显示图标
+			chrome.pageAction.show(tabId);
+			// 接受消息
+			chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+				if (request.what == 'ptinfo') {
+					sendResponse(PTINFO);
+				}
+			});
+		}	
 	}
 };
 
