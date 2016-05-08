@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hustcc/PTHospital.chrome.svg?branch=master)](https://travis-ci.org/hustcc/PTHospital.chrome)
 
-本项目的意图是利用[https://github.com/open-power-workgroup/Hospital](open-power-workgroup/Hospital)收集汇总与国内一些医疗机构有关的信息，制作出来的一个`莆田系医院网站提醒`的Chrome插件，供广大寻医问药的患者及家属参考。
+本项目的意图是利用[open-power-workgroup/Hospital](https://github.com/open-power-workgroup/Hospital)收集汇总与国内一些医疗机构有关的信息，制作出来的一个`莆田系医院网站提醒`的Chrome插件，供广大寻医问药的患者及家属参考。
 
 这是一个莆田系医院网站提醒的浏览器插件，在访问莆田系无良网站，将显示红色警告提示，并给出它的医院名字和医院电话，提醒您就医谨慎。
 
