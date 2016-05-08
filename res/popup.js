@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     	$_id("supply_hospital").innerHTML = chrome.i18n.getMessage("fillHosInfo") + '<a target="_blank" href="https://github.com/hustcc/PTHospital.chrome">PTHospital.chrome@ GitHub</a>';
 
     	var bg = chrome.extension.getBackgroundPage();
-    	var PTINFO = bg.PTINFO;
-    	if(PTINFO && PTINFO.length == 2){
+    	var PTINFO = bg.PTINFO["t-" + tab.id];
+    	if(PTINFO && PTINFO.length >= 2){
 			document.getElementById("content-name").innerHTML = PTINFO[0];
 			document.getElementById("content-call").innerHTML = PTINFO[1];
 		}else{

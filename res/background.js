@@ -1,34 +1,5 @@
-﻿function getDomainFromUrl(url) {
-	var host = "null";
-	if(typeof url == "undefined" || null == url)
-		url = window.location.href;
-	var regex = /.*\:\/\/([^\/]*).*/;
-	var match = url.match(regex);
-	if(typeof match != "undefined" && null != match)
-		host = match[1];
-	return host;
-};
-
-var PTINFO;
-var PTHospitalListTemp = null;
-
-
-function checkForPTUrl(tabId, changeInfo, tab) {
-	if (tab.status == 'loading') {
-		var PT_url = getDomainFromUrl(tab.url).toLowerCase();
-		PTINFO = PTHospitalListTemp[PT_url];
-		if(PTINFO) {
-			// 显示图标
-			chrome.pageAction.show(tabId);
-			// 接受消息
-			chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-				if (request.what == 'ptinfo') {
-					sendResponse(PTINFO);
-				}
-			});
-		}	
-	}
-};
+﻿var PTINFO = {}; // 当前的医院信息，针对于不同的tab
+var PTHospitalListTemp = null; //医院信息列表
 
 function _readFileContent(link, callback){
     //创建XMLHttpRequest对象，用原生的AJAX方式读取内容
@@ -82,4 +53,38 @@ function load_list_data() {
 // 预先拉取数据
 load_list_data();
 
-chrome.tabs.onUpdated.addListener(checkForPTUrl);
+// chrome.tabs.onUpdated.addListener(checkForPTUrl);
+
+function checkPT(hostname, title, desc, tabId) {
+	hostname = hostname.toLowerCase();
+	var tmp = PTHospitalListTemp[hostname];
+	if(tmp) {
+		// 显示图标
+		chrome.pageAction.show(tabId);
+		return tmp;
+	}
+	else {
+		// 网址匹配不到，匹配title
+		for (var website in PTHospitalListTemp) {
+			tmp = PTHospitalListTemp[website];
+			// 匹配title和表述信息
+			if (title.indexOf(tmp[0]) !== -1 || desc.indexOf(tmp[0]) !== -1) {
+				//匹配到
+				chrome.pageAction.show(tabId);
+				return tmp;
+			}
+		}
+	}
+	return []
+}
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+	if (request.what == 'ptinfo') {
+		var tabId = sender.tab.id;
+		var data = checkPT(request.url, request.title, request.desc, tabId);
+		if (data.length !== 0) {
+			PTINFO["t-" + tabId] = data;	
+		}
+		sendResponse(data);
+	}
+});

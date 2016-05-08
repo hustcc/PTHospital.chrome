@@ -28,8 +28,8 @@ function getRandomDOM() {
     }
 }
 
+var divid = generateMixed(getRandomNum(10, 16));
 function getMaskContainer(name, phone) {
-    var divid = generateMixed(getRandomNum(10, 16));
     var alert_div = $_id(divid);
     if (!alert_div) {
         alert_div = document.createElement("div");
@@ -45,6 +45,7 @@ function getMaskContainer(name, phone) {
                       "position:fixed!important;" + 
                       "left:0!important;bottom:0!important;" + 
                       "z-index:2147483647!important;" + 
+                      "text-align:center!important;" +
                       "line-height:50px!important;"
         alert_div.style.cssText = cssText;
         var divdom = getRandomDOM();
@@ -55,18 +56,29 @@ function getMaskContainer(name, phone) {
             document.body.insertBefore(alert_div, divdom);   
         }
     }
-    return alert_div;
+    // 循环检查防止屏蔽
+    setTimeout(function() {getMaskContainer(name, phone);}, 1000);
+    // return alert_div;
 }
 
-
-function showAlert(name, phone) {
-    getMaskContainer(name, phone);
+function getDesc() {
+    var metas = document.getElementsByTagName('meta');
+    for (i in metas) {
+      if ("description" == metas[i].name.toLowerCase()) {
+          return metas[i].content;
+      }
+    }
+    return "";
 }
 
 document.addEventListener( "DOMContentLoaded", function() {
-    chrome.runtime.sendMessage({"what": "ptinfo"}, function(response) {
+    chrome.runtime.sendMessage({
+      "what": "ptinfo", 
+      "url": window.location.hostname, 
+      "title": document.title, 
+      "desc": getDesc()}, function(response) {
         if (response && response.length >= 2) {
-            showAlert(response[0], response[1]);    
+            getMaskContainer(response[0], response[1]);    
         }
     })
 }, false );
