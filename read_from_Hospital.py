@@ -19,6 +19,7 @@ def get_res_content():
 
 def process_json(content_json):
     hospital_res = {}
+    cnt = 1
     for city in content_json:
         hospitals = content_json[city]
         for name in hospitals:
@@ -27,6 +28,10 @@ def process_json(content_json):
             phones = hospital.get(u"电话") or []
             if len(phones) > 2:
                 phones = phones[0:2]
+            # 对于没有网址的医院，使用pt_num
+            if len(websites) == 0:
+                hospital_res["pt" + str(cnt)] = [name, " / ".join(phones)]
+                cnt += 1
             for website in websites:
                 website = website.replace("http://", "").replace("https://", "").replace("/", "")
                 hospital_res[website] = [name, " / ".join(phones)]
