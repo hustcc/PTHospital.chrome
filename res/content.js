@@ -64,7 +64,7 @@ function getMaskContainer(name, phone) {
 function getDesc() {
     var metas = document.getElementsByTagName('meta');
     for (i in metas) {
-      if ("description" == metas[i].name.toLowerCase()) {
+      if (metas[i].content && "description" == metas[i].content.toLowerCase()) {
           return metas[i].content;
       }
     }
