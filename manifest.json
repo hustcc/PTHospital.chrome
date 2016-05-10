@@ -24,7 +24,10 @@
 	}, {
 		"all_frames": false,
 		"js": [ "res/baidu_search_content.js" ],
-		"matches": [ "http://*.baidu.com/*", "https://*.baidu.com/*" ],
+		"matches": [
+        	"https://www.baidu.com/*",
+        	"http://www.baidu.com/*"
+        ],
 		"run_at": "document_end"
 	}],
 	"icons": {
