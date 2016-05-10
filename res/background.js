@@ -79,12 +79,19 @@ function checkPT(hostname, title, desc, tabId) {
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+	var tabId = sender.tab.id;
 	if (request.what == 'ptinfo') {
-		var tabId = sender.tab.id;
 		var data = checkPT(request.url, request.title, request.desc, tabId);
 		if (data.length !== 0) {
 			PTINFO["t-" + tabId] = data;	
 		}
 		sendResponse(data);
+	}
+	else if(request.what == 'ptinfo_bs') {
+		var data = checkPT(request.url, "", "", tabId);
+		if (data.length !== 0) {
+			PTINFO["t-" + tabId] = data;	
+		}
+		sendResponse({"id": request.id, "data": data});
 	}
 });
