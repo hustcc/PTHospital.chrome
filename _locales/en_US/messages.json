@@ -1,23 +1,23 @@
 {
    "extDesp": {
-      "message": "PuTian Hospital Alert, When visite there website, give alert and show the Hospital Message."
+      "message": "Indicate websites of hospitals of the Putian Medical Group."
    },
    "extName": {
-      "message": "PuTian Hospital Alert"
+      "message": "Putian Hospital Alert"
    },
    "tipText": {
-      "message": "Belongs to PuTian Hospital, be carefull !"
+      "message": "belongs to the Putian Medical Group, be careful!"
    },
    "HosName": {
       "message": "Hospital Name: "
    },
    "HosPhone": {
-      "message": "Hospital Call: "
+      "message": "Hospital Tel: "
    },
    "HosInfoTitle": {
-      "message": "Belongs to PuTian Hospital, Be carefull please."
+      "message": "Caution: this hospital belongs to the Putian Medical Group."
    },
    "fillHosInfo": {
-      "message": "Supply PuTian Hospital: "
+      "message": "Submit more hospitals of the Putian Medical Group: "
    }
 }

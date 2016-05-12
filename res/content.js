@@ -34,7 +34,7 @@ function getMaskContainer(name, phone) {
     if (!alert_div) {
         alert_div = document.createElement("div");
         alert_div.id = divid;
-        alert_div.innerHTML = "《" + name + "》" + chrome.i18n.getMessage("tipText");
+        alert_div.innerHTML = "『" + name + "』" + chrome.i18n.getMessage("tipText");
         var cssText = "display:block!important;" +
                       "background-color:red!important;" +
                       "width:" + window.screen.availWidth + "px!important;" +
