@@ -47,7 +47,7 @@ function cssText2Dict(cssText) {
     var tmp = null;
     for (var i = cssText.length - 1; i >= 0; i--) {
         tmp = cssText[i].split(":");
-        if (tmp[0].trim())
+        if (tmp[0].sTrim())
           dict[tmp[0].sTrim()] = tmp[1].sTrim();
     };
     return dict;
