@@ -78,6 +78,17 @@ function checkPT(hostname, title, desc, tabId) {
 	return []
 }
 
+function checkPTUrl(hostname, tabId) {
+	hostname = hostname.toLowerCase();
+	var tmp = PTHospitalListTemp[hostname];
+	if(tmp) {
+		// 显示图标
+		chrome.pageAction.show(tabId);
+		return tmp;
+	}
+	return []
+}
+
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	var tabId = sender.tab.id;
 	if (request.what == 'ptinfo') {
@@ -88,7 +99,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		sendResponse(data);
 	}
 	else if(request.what == 'ptinfo_bs') {
-		var data = checkPT(request.url, "", "", tabId);
+		var data = checkPTUrl(request.url, tabId);
 		if (data.length !== 0) {
 			PTINFO["t-" + tabId] = data;	
 		}
