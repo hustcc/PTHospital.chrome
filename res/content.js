@@ -26,20 +26,11 @@ function getRandomNum(Min, Max) {
     return(Min + Math.round(Rand * Range));
 }
 
-function getRandomDOM() {
-    var divs = document.body.childNodes;
-    if (divs.length == 0) {
-        return document.body;
-    }
-    else {
-        return divs[getRandomNum(0, divs.length)];
-    }
-}
-
 var divid = generateMixed(getRandomNum(10, 16));
 var alert_div = null; // div dom
 var cssText = null; //div dom的cssText
 var cssTextDict = null; // div dom的css Text
+var showTipText = ""; // div inner HTML
 
 function cssText2Dict(cssText) {
     var dict = {};
@@ -55,12 +46,23 @@ function cssText2Dict(cssText) {
 
 var div_cssDict = null; // 临时变量
 
-function isDivModified(div_cssText) {
+function isDivModified(divdom) {
+    // 1. css是否被修改
+    var div_cssText = divdom.style.cssText;
     div_cssDict = cssText2Dict(div_cssText);
     for (var key in cssTextDict) {
         if (cssTextDict[key] != div_cssDict[key]) {
             return true;
         }
+    }
+    // 2. innerHTML是否被修改
+    if (divdom.innerHTML != showTipText) {
+        return true;
+    }
+
+    // 3. dom位置修改，父节点不是body
+    if (divdom.parentNode != document.body) {
+        return true;
     }
     return false;
 }
@@ -68,7 +70,8 @@ function isDivModified(div_cssText) {
 function addMask(divid, name, phone) {
     var alert_div = document.createElement("div");
     alert_div.id = divid;
-    alert_div.innerHTML = "『" + name + "』" + chrome.i18n.getMessage("tipText");
+    showTipText = "『" + name + "』" + chrome.i18n.getMessage("tipText");
+    alert_div.innerHTML = showTipText;
     cssText = "display:block!important;" +
                   "opacity:1!important;" +
                   "background-color:red!important;" +
@@ -84,27 +87,20 @@ function addMask(divid, name, phone) {
                   "line-height:50px!important;";
     cssTextDict = cssText2Dict(cssText);
     alert_div.style.cssText = cssText;
-    var divdom = getRandomDOM();
-    if (document.body == divdom) {
-        document.body.appendChild(alert_div);
-    }
-    else {
-        document.body.insertBefore(alert_div, divdom);   
-    }
+    // 插入到body最后
+    document.body.appendChild(alert_div);
     return alert_div;
 }
 
 
 function getMaskContainer(name, phone) {
     // 如果不存在
-    // dom.style.opacity = 0 ;
-    // dom.style.display = "none";
     if (!alert_div) {
         alert_div = addMask(divid, name, phone);
     }
-    // 或者被设置为隐藏或者透明，则重新设置
-    else if (isDivModified(alert_div.style.cssText)) {
-        alert_div.parentNode.removeChild(alert_div);
+    // 提示div被反屏蔽措施修改
+    else if (isDivModified(alert_div)) {
+        alert_div.parentNode.removeChild(alert_div); //先删除节点
         alert_div = addMask(divid, name, phone);
     }
     // 循环检查防止屏蔽
