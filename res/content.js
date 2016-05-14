@@ -1,16 +1,16 @@
 var frame_func = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(func) {
     window.setTimeout(func, 1000 / 30);
-}
+};
 
 String.prototype.sTrim = function () {
     return this.replace(/\s+/g, "");
-}
+};
 
 function $_id(id) {
     return document.getElementById(id);
 }
 
-var chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var chars = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 function generateMixed(n) {
      var res = "";
      for(var i = 0; i < n ; i ++) {
@@ -40,7 +40,7 @@ function cssText2Dict(cssText) {
         tmp = cssText[i].split(":");
         if (tmp[0].sTrim())
           dict[tmp[0].sTrim()] = tmp[1].sTrim();
-    };
+    }
     return dict;
 }
 
@@ -108,8 +108,8 @@ function getMaskContainer(name, phone) {
 }
 
 function getDesc() {
-    var metas = document.getElementsByTagName('meta');
-    for (i in metas) {
+    var metas = document.getElementsByTagName("meta");
+    for (var i in metas) {
       if (metas[i].content && "description" == metas[i].content.toLowerCase()) {
           return metas[i].content;
       }
@@ -126,5 +126,5 @@ document.addEventListener( "DOMContentLoaded", function() {
         if (response && response.length >= 2) {
             getMaskContainer(response[0], response[1]);    
         }
-    })
+    });
 }, false );

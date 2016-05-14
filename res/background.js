@@ -29,7 +29,7 @@ function _readFileContent(link, callback){
     };
 
     //打开读通道
-    xhr.open('GET', link, true);
+    xhr.open("GET", link, true);
 
     //设置HTTP-HEADER
     xhr.setRequestHeader("Content-Type","text/plain;charset=UTF-8");
@@ -37,11 +37,11 @@ function _readFileContent(link, callback){
 
     //开始进行数据读取
     xhr.send();
-};
+}
 
 function load_list_data() {
 	if (! PTHospitalListTemp) {
-		_readFileContent('http://cdn.atool.org/github/PTHospitalList.js', function(content) {
+		_readFileContent("http://cdn.atool.org/github/PTHospitalList.js", function(content) {
 			if (content.success) {
 				// 不知道会不会有隐患
 				eval(content.content);
@@ -49,7 +49,7 @@ function load_list_data() {
 			}
 		});
 	}
-};
+}
 // 预先拉取数据
 load_list_data();
 
@@ -75,7 +75,7 @@ function checkPT(hostname, title, desc, tabId) {
 			}
 		}
 	}
-	return []
+	return [];
 }
 
 function checkPTUrl(hostname, tabId) {
@@ -86,20 +86,21 @@ function checkPTUrl(hostname, tabId) {
 		chrome.pageAction.show(tabId);
 		return tmp;
 	}
-	return []
+	return [];
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	var tabId = sender.tab.id;
-	if (request.what == 'ptinfo') {
-		var data = checkPT(request.url, request.title, request.desc, tabId);
+	var data = [];
+	if (request.what == "ptinfo") {
+		data = checkPT(request.url, request.title, request.desc, tabId);
 		if (data.length !== 0) {
 			PTINFO["t-" + tabId] = data;	
 		}
 		sendResponse(data);
 	}
-	else if(request.what == 'ptinfo_bs') {
-		var data = checkPTUrl(request.url, tabId);
+	else if(request.what == "ptinfo_bs") {
+		data = checkPTUrl(request.url, tabId);
 		if (data.length !== 0) {
 			PTINFO["t-" + tabId] = data;	
 		}

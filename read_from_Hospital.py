@@ -42,7 +42,7 @@ def output_raw(hospital_res):
     try:
         filename = os.path.join(os.getcwd(), "PTHospitalList.js")
         output = json.dumps(hospital_res, indent=2)
-        output = "var PTHospitalList = " + output
+        output = "var PTHospitalList = " + output + ";"
         
         file_object = open(filename, 'w')
         file_object.write(output)
