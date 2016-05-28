@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hustcc/PTHospital.chrome.svg?branch=master)](https://travis-ci.org/hustcc/PTHospital.chrome)
 
-医院讨论或者Github技术讨论加QQ群：51660171，注明Github ID加群。
+医院讨论或者Github技术讨论加QQ群：**51660171**，注明Github ID加群。
 
 本项目的意图是利用[open-power-workgroup/Hospital](https://github.com/open-power-workgroup/Hospital)收集汇总与国内一些医疗机构有关的信息，制作出来的一个`莆田系医院网站提醒`的Chrome插件，供广大寻医问药的患者及家属参考。
 
