@@ -1,5 +1,7 @@
 # ChangeLog
 
+## v1.1.5
+1. 修正过期CDN，改用raw.githack.com挂载github的repo文件服务
 
 ## v1.1.4
 1. 增加反屏蔽措施，检查提示节点的内容和位置，参考[issues/26](https://github.com/hustcc/PTHospital.chrome/issues/26)；

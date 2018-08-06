@@ -41,7 +41,7 @@ function _readFileContent(link, callback){
 
 function load_list_data() {
 	if (! PTHospitalListTemp) {
-		_readFileContent("http://cdn.atool.org/github/PTHospitalList.js", function(content) {
+		_readFileContent("https://raw.githack.com/hustcc/PTHospital.chrome/master/PTHospitalList.js", function(content) {
 			if (content.success) {
 				// 不知道会不会有隐患
 				eval(content.content);
