@@ -16,7 +16,7 @@
 
 1. Chrome安装市场安装地址：[莆田系医院网站提醒 插件安装](https://chrome.google.com/webstore/detail/%E8%8E%86%E7%94%B0%E7%B3%BB%E5%8C%BB%E9%99%A2%E7%BD%91%E7%AB%99%E6%8F%90%E9%86%92/pihadmdiehanenijehoohjnpiaofmmng)。
 2. 下载项目目录中的[PTHospital.chrome.crx](PTHospital.chrome.crx)安装，具体可以参考文章[打不开Chrome商店，怎么安装插件？](http://50vip.com/article/77)。
-3. 下载本代码，将代码目录拖入到Chrome浏览器的扩展撑血界面中（注意打开开发者模式）。
+3. 下载本代码，将代码目录拖入到Chrome浏览器的扩展程序界面中（注意打开开发者模式）。
 
 
 ## 插件截图
