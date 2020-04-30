@@ -8,9 +8,13 @@
   "license": "MIT",
   "main": "PTHospitalList.js",
   "scripts": {
-    "test": "sh test.sh"
+    "test": "sh test.sh",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "jshint": "*"
-  }
+    "jshint": "*",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
